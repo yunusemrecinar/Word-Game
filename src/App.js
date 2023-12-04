@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import NoPage from "./pages/NoPage";
+import Layout from "./Components/Layout/Layout.js";
+import Home from "./Components/Home/Home.js";
+import Contact from "./Components/Contact/Contact.js";
+import NoPage from "./Components/NoPage/NoPage.js";
 
 function App() {
   return (
