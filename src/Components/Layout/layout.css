@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+    background-color: #f7f4ee;
+    padding: 2rem 2rem 2rem 4rem;
+}
+
+li {
+    list-style: none;   
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    font: 1.5rem 'Roboto', sans-serif;
+    font-weight: bolder;
+}
