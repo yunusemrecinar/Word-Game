@@ -45,3 +45,11 @@ body {
     cursor: pointer;
     text-transform: lowercase;
 }
+
+.green-shadow {
+    box-shadow: 0 0 10px green;
+}
+
+.red-shadow {
+    box-shadow: 0 0 10px red;
+}

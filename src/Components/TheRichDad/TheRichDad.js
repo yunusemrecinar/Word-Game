@@ -6,8 +6,10 @@ const TheRichDad = () => {
     const [point, setPoint] = useState(0);
     const [word, setWord] = useState("");
     const [answers, setAnswers] = useState({answer0: "", answer1: "", answer2: "", answer3: ""});
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
 
     const getRandomWords = () => {
+        setSelectedAnswer(null);
         const allWords = Object.keys(words);
         
         // Select a random word
@@ -52,32 +54,45 @@ const TheRichDad = () => {
     }, [point]); // Empty dependency array ensures this runs only once on mount
 
     const checkAnswer = (answer) => {
+        let isCorrect = false;
         if (answer === words[word]) {
             setPoint(point + 1);
+            isCorrect = true;
         }
 
-        console.log(point)
-    }
+        // Set the selectedAnswer for styling
+        setSelectedAnswer(isCorrect ? "correct" : "wrong");
+
+        // Add shadow class based on correctness
+        setTimeout(() => {
+            setSelectedAnswer(null); // Remove shadow class after 2 seconds
+        }, 2000);
+
+        console.log(point);
+    };
+    
 
     return (
         <div className="container">
-            <div className="word">{word}</div>
+            <div className={`word ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`}>
+                {word}
+            </div>
             <div className="answers">
-                <div className="answer" onClick={() => checkAnswer(answers.answer0)}>
+                <div className={`answer ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`} onClick={() => checkAnswer(answers.answer0)}>
                     {answers.answer0}
                 </div>
-                <div className="answer" onClick={() => checkAnswer(answers.answer1)}>
+                <div className={`answer ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`} onClick={() => checkAnswer(answers.answer1)}>
                     {answers.answer1}
                 </div>
-                <div className="answer" onClick={() => checkAnswer(answers.answer2)}>
+                <div className={`answer ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`} onClick={() => checkAnswer(answers.answer2)}>
                     {answers.answer2}
                 </div>
-                <div className="answer" onClick={() => checkAnswer(answers.answer3)}>
+                <div className={`answer ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`} onClick={() => checkAnswer(answers.answer3)}>
                     {answers.answer3}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default TheRichDad;
