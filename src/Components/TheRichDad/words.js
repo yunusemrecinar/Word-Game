@@ -1,4 +1,4 @@
-{    
+const words = {    
     "feasible" : "mümkün",
     "capture" : "yakalamak",
     "testify" : "tanıklık",
@@ -632,3 +632,5 @@
     "steady" : "istikrarlı",
     "treasured" : "değerli"
 }
+
+export default words;
