@@ -46,10 +46,10 @@ body {
     text-transform: lowercase;
 }
 
-.green-shadow {
+.correct {
     box-shadow: 0 0 10px green;
 }
 
-.red-shadow {
+.wrong {
     box-shadow: 0 0 10px red;
 }

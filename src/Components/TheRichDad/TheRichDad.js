@@ -6,10 +6,12 @@ const TheRichDad = () => {
     const [point, setPoint] = useState(0);
     const [word, setWord] = useState("");
     const [answers, setAnswers] = useState({answer0: "", answer1: "", answer2: "", answer3: ""});
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [selectedAnswers, setSelectedAnswers] = useState([null, null, null, null]);
 
     const getRandomWords = () => {
-        setSelectedAnswer(null);
+        // Reset all selectedAnswer states
+        setSelectedAnswers([null, null, null, null]);
+
         const allWords = Object.keys(words);
         
         // Select a random word
@@ -53,43 +55,44 @@ const TheRichDad = () => {
         getRandomWords();
     }, [point]); // Empty dependency array ensures this runs only once on mount
 
-    const checkAnswer = (answer) => {
+    const checkAnswer = (answer, index) => {
         let isCorrect = false;
         if (answer === words[word]) {
             setPoint(point + 1);
             isCorrect = true;
         }
 
-        // Set the selectedAnswer for styling
-        setSelectedAnswer(isCorrect ? "correct" : "wrong");
+        // Update the selectedAnswer for styling based on the index
+        const newSelectedAnswers = [...selectedAnswers];
+        newSelectedAnswers[index] = isCorrect ? "correct" : "wrong";
+        setSelectedAnswers(newSelectedAnswers);
 
         // Add shadow class based on correctness
         setTimeout(() => {
-            setSelectedAnswer(null); // Remove shadow class after 2 seconds
-        }, 2000);
+            // Remove shadow class after 500ms
+            const resetSelectedAnswers = [...selectedAnswers];
+            resetSelectedAnswers[index] = null;
+            setSelectedAnswers(resetSelectedAnswers);
+        }, 500);
 
-        console.log(point);
     };
     
 
     return (
         <div className="container">
-            <div className={`word ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`}>
+            <div className={'word'}>
                 {word}
             </div>
             <div className="answers">
-                <div className={`answer ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`} onClick={() => checkAnswer(answers.answer0)}>
-                    {answers.answer0}
-                </div>
-                <div className={`answer ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`} onClick={() => checkAnswer(answers.answer1)}>
-                    {answers.answer1}
-                </div>
-                <div className={`answer ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`} onClick={() => checkAnswer(answers.answer2)}>
-                    {answers.answer2}
-                </div>
-                <div className={`answer ${selectedAnswer === "correct" ? "green-shadow" : selectedAnswer === "wrong" ? "red-shadow" : ""}`} onClick={() => checkAnswer(answers.answer3)}>
-                    {answers.answer3}
-                </div>
+                {Object.keys(answers).map((key, index) => (
+                    <div
+                        key={index}
+                        className={`answer ${selectedAnswers[index]}`}
+                        onClick={() => checkAnswer(answers[key], index)}
+                    >
+                        {answers[key]}
+                    </div>
+                ))}
             </div>
         </div>
     );
