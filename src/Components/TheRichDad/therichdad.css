@@ -44,12 +44,15 @@ body {
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
     cursor: pointer;
     text-transform: lowercase;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
 }
 
 .correct {
-    box-shadow: 0 0 10px green;
+    box-shadow: 8px -8px 0px 0px green; 
+    transform: translate(-8px, 8px); 
 }
 
 .wrong {
-    box-shadow: 0 0 10px red;
+    box-shadow: 8px -8px 0px 0px red; 
+    transform: translate(-8px, 8px); 
 }

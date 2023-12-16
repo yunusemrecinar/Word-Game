@@ -56,11 +56,7 @@ const TheRichDad = () => {
     }, [point]); // Empty dependency array ensures this runs only once on mount
 
     const checkAnswer = (answer, index) => {
-        let isCorrect = false;
-        if (answer === words[word]) {
-            setPoint(point + 1);
-            isCorrect = true;
-        }
+        const isCorrect = answer === words[word];
 
         // Update the selectedAnswer for styling based on the index
         const newSelectedAnswers = [...selectedAnswers];
@@ -73,8 +69,13 @@ const TheRichDad = () => {
             const resetSelectedAnswers = [...selectedAnswers];
             resetSelectedAnswers[index] = null;
             setSelectedAnswers(resetSelectedAnswers);
-        }, 500);
 
+            // If the answer is correct, proceed to the next word
+            if (isCorrect) {
+                setPoint(point + 1);
+                getRandomWords();
+            }
+        }, 500);
     };
     
 
