@@ -42,6 +42,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
@@ -67,10 +68,15 @@ body {
         padding: 2rem;
         text-align: center;
     }
+
+    nav li a {
+        font-size: 1rem;
+    }
     
     .container {
         height: initial;
         gap: 2rem;
+        margin-top: 3rem;
     }
 
     .answers {
@@ -80,6 +86,26 @@ body {
     .answer {
         width: 140px;
         height: 100px;
+    }
+
+    .word {
+        font-size: 2.5rem;
+    }
+
+    .books {
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .book {
+        width: fit-content;
+        height: fit-content;
+        padding: 1rem 1rem 0.8rem;
+    }
+
+    .book a img{
+        width: 7rem;
     }
 
 }

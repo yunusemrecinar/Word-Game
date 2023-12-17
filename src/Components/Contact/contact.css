@@ -19,3 +19,22 @@ p {
     text-align: center;
     line-height: 2rem;
 }
+
+@media screen and (max-width: 768px) {
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact {
+        width: initial;
+        height: initial;
+        margin-top: 10rem;
+    }
+
+    .contact p {
+        font-size: 0.7rem;
+        line-height: 1.3rem;
+    }
+
+}
