@@ -4,6 +4,7 @@ import words from "./words.js";
 
 const TheRichDad = () => {
     const [point, setPoint] = useState(0);
+    const [wordPoint, setWordPoint] = useState(0);
     const [word, setWord] = useState("");
     const [answers, setAnswers] = useState({answer0: "", answer1: "", answer2: "", answer3: ""});
     const [selectedAnswers, setSelectedAnswers] = useState([null, null, null, null]);
@@ -72,28 +73,39 @@ const TheRichDad = () => {
 
             // If the answer is correct, proceed to the next word
             if (isCorrect) {
+                // setWordPoint(wordPoint + 1);
                 setPoint(point + 1);
                 getRandomWords();
+            } else {
+                // setWordPoint(wordPoint - 1);
+                // if(wordPoint === -3) {
+                // }
             }
+            console.log(wordPoint);
         }, 500);
     };
     
 
     return (
-        <div className="container">
-            <div className={'word'}>
-                {word}
+        <div className="outerContainer">
+            <div className="container">
+                <div className={'word'}>
+                    {word}
+                </div>
+                <div className="answers">
+                    {Object.keys(answers).map((key, index) => (
+                        <div
+                            key={index}
+                            className={`answer ${selectedAnswers[index]}`}
+                            onClick={() => checkAnswer(answers[key], index)}
+                        >
+                            {answers[key]}
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className="answers">
-                {Object.keys(answers).map((key, index) => (
-                    <div
-                        key={index}
-                        className={`answer ${selectedAnswers[index]}`}
-                        onClick={() => checkAnswer(answers[key], index)}
-                    >
-                        {answers[key]}
-                    </div>
-                ))}
+            <div className="point">
+                Total Points: {point}
             </div>
         </div>
     );
