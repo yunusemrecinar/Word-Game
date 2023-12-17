@@ -83,6 +83,7 @@ const TheRichDad = () => {
                 
                 if(wordPoint === -2) {
                     toast.error("Looks like the word is pulling a magic trick on you! Time to learn its secrets. 🎩✨");
+                    setWordPoint(0);
                 }
             }
         }, 500);
