@@ -13,6 +13,7 @@ li {
 a {
     text-decoration: none;
     color: #000;
-    font: 1.5rem 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-family: "Baloo Bhaijaan 2",sans-serif;
     font-weight: bolder;
 }
