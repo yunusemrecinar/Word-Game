@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const TheRichDad = () => {
     const [point, setPoint] = useState(0);
-    const [wordPoint, setWordPoint] = useState(1);
+    const [wordPoint, setWordPoint] = useState(0);
     const [word, setWord] = useState("");
     const [answers, setAnswers] = useState({answer0: "", answer1: "", answer2: "", answer3: ""});
     const [selectedAnswers, setSelectedAnswers] = useState([null, null, null, null]);
@@ -75,13 +75,13 @@ const TheRichDad = () => {
 
             // If the answer is correct, proceed to the next word
             if (isCorrect) {
-                setWordPoint(1);
+                setWordPoint(0);
                 setPoint(point + 1);
                 getRandomWords();
             } else {
-                setWordPoint(wordPoint - 1);
+                setWordPoint(prevWordPoint => prevWordPoint - 1);
                 
-                if(wordPoint === -1) {
+                if(wordPoint === -2) {
                     toast.error("Looks like the word is pulling a magic trick on you! Time to learn its secrets. 🎩✨");
                 }
             }
