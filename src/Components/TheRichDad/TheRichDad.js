@@ -1,10 +1,12 @@
 import "./therichdad.css";
 import React, { useState, useEffect } from "react";
 import words from "./words.js";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const TheRichDad = () => {
     const [point, setPoint] = useState(0);
-    const [wordPoint, setWordPoint] = useState(0);
+    const [wordPoint, setWordPoint] = useState(1);
     const [word, setWord] = useState("");
     const [answers, setAnswers] = useState({answer0: "", answer1: "", answer2: "", answer3: ""});
     const [selectedAnswers, setSelectedAnswers] = useState([null, null, null, null]);
@@ -73,15 +75,16 @@ const TheRichDad = () => {
 
             // If the answer is correct, proceed to the next word
             if (isCorrect) {
-                // setWordPoint(wordPoint + 1);
+                setWordPoint(1);
                 setPoint(point + 1);
                 getRandomWords();
             } else {
-                // setWordPoint(wordPoint - 1);
-                // if(wordPoint === -3) {
-                // }
+                setWordPoint(wordPoint - 1);
+                
+                if(wordPoint === -1) {
+                    toast.error("Looks like the word is pulling a magic trick on you! Time to learn its secrets. 🎩✨");
+                }
             }
-            console.log(wordPoint);
         }, 500);
     };
     
@@ -107,6 +110,7 @@ const TheRichDad = () => {
             <div className="point">
                 Total Points: {point}
             </div>
+            <ToastContainer position="bottom-left" />
         </div>
     );
 }
