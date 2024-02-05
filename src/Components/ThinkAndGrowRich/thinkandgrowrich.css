@@ -26,10 +26,15 @@ body {
 }   
 
 .word {
+    display: flex;
     font-size: 4rem;
     font-weight: 700;
     color: #000;
     text-transform: capitalize;
+}
+
+.speech {
+    margin-left: 1rem;
 }
 
 .answers {

@@ -11,6 +11,11 @@ const ThinkAndGrowRich = () => {
     const [answers, setAnswers] = useState({answer0: "", answer1: "", answer2: "", answer3: ""});
     const [selectedAnswers, setSelectedAnswers] = useState([null, null, null, null]);
 
+    const speakWord = (word) => {
+        const utterance = new SpeechSynthesisUtterance(word);
+        speechSynthesis.speak(utterance);
+    };
+
     const getRandomWords = () => {
         // Reset all selectedAnswer states
         setSelectedAnswers([null, null, null, null]);
@@ -95,6 +100,11 @@ const ThinkAndGrowRich = () => {
             <div className="container">
                 <div className={'word'}>
                     {word}
+                    <div
+                        onClick={() => speakWord(word)}
+                    >
+                        <i class="fa-solid fa-volume-high speech"></i>
+                    </div>
                 </div>
                 <div className="answers">
                     {Object.keys(answers).map((key, index) => (
