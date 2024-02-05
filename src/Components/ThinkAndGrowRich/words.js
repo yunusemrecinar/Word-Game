@@ -589,7 +589,7 @@ const words = {
     "destructive" : "yıkcı",
     "misfortune" : "talihsizlik, terslik",
     "doomed" : "mahkum",
-    "expectancy" : "beklency",
+    "expectancy" : "beklenti",
     "abode" : "mesken, ikametgah",
     "dominate" : "hakim olmak, hükmetmek",
     "hinder" : "engellemek",
