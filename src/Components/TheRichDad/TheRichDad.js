@@ -11,6 +11,11 @@ const TheRichDad = () => {
     const [answers, setAnswers] = useState({answer0: "", answer1: "", answer2: "", answer3: ""});
     const [selectedAnswers, setSelectedAnswers] = useState([null, null, null, null]);
 
+    const speakWord = (word) => {
+        const utterance = new SpeechSynthesisUtterance(word);
+        speechSynthesis.speak(utterance);
+    };
+
     const getRandomWords = () => {
         // Reset all selectedAnswer states
         setSelectedAnswers([null, null, null, null]);
@@ -43,6 +48,7 @@ const TheRichDad = () => {
             answer2: randomAnswers[2],
             answer3: randomAnswers[3],
         });
+
     };
 
     const shuffle = (array) => { 
@@ -95,6 +101,11 @@ const TheRichDad = () => {
             <div className="container">
                 <div className={'word'}>
                     {word}
+                    <div
+                        onClick={() => speakWord(word)}
+                    >
+                        <i class="fa-solid fa-volume-high speech"></i>
+                    </div>
                 </div>
                 <div className="answers">
                     {Object.keys(answers).map((key, index) => (
