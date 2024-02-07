@@ -19,14 +19,14 @@ h1 {
 }
 
 .books {
-    display: flex;
-    flex-direction: row;
-    gap: 7rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
 }
 
 .book {
-    width: 30rem;
-    height: 40rem;
+    width: 16rem;
+    height: 23rem;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -36,4 +36,17 @@ h1 {
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+.book  a img {
+    width: 200px;
+    height: 300px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .books {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 }

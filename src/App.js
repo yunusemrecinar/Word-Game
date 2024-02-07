@@ -6,6 +6,7 @@ import Contact from "./Components/Contact/Contact.js";
 import NoPage from "./Components/NoPage/NoPage.js";
 import TheRichDad from "./Components/TheRichDad/TheRichDad.js"
 import ThinkAndGrowRich from "./Components/ThinkAndGrowRich/ThinkAndGrowRich.js"
+import FourHourWorkWeek from './Components/FourHourWorkWeek/fourhourworkweek';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="therichdad" element={<TheRichDad />} />
           <Route path="thinkandgrowrich" element={<ThinkAndGrowRich />} />
+          <Route path="fourhourworkweek" element={<FourHourWorkWeek />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

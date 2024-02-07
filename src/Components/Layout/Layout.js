@@ -15,6 +15,9 @@ const Layout = () => {
                     <Link to="/thinkandgrowrich">Think And Grow Rich</Link>
                 </li>
                 <li>
+                    <Link to="/fourhourworkweek">Four Hour Work Week</Link>
+                </li>
+                <li>
                     <Link to="/contact">Contact</Link>
                 </li>
             </nav>

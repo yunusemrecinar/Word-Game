@@ -108,22 +108,6 @@ body {
         font-size: 2.5rem;
     }
 
-    .books {
-        flex-direction: column;
-        gap: 2.5rem;
-        margin-bottom: 3.5rem;
-    }
-
-    .book {
-        width: fit-content;
-        height: fit-content;
-        padding: 1rem 1rem 0.3rem;
-    }
-
-    .book a img{
-        width: 7rem;
-    }
-
     .point {
         font-size: 0.8rem;
         font-weight: 800;
