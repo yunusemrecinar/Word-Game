@@ -103,7 +103,7 @@ const ThinkAndGrowRich = () => {
                     <div
                         onClick={() => speakWord(word)}
                     >
-                        <i class="fa-solid fa-volume-high speech"></i>
+                        <i className="fa-solid fa-volume-high speech"></i>
                     </div>
                 </div>
                 <div className="answers">

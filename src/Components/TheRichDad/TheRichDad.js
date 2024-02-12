@@ -80,9 +80,11 @@ const TheRichDad = () => {
             setSelectedAnswers(resetSelectedAnswers);
 
             // If the answer is correct, proceed to the next word
+            console.log(words)
             if (isCorrect) {
                 setWordPoint(0);
                 setPoint(point + 1);
+                delete words[word];
                 getRandomWords();
             } else {
                 setWordPoint(prevWordPoint => prevWordPoint - 1);
@@ -104,7 +106,7 @@ const TheRichDad = () => {
                     <div
                         onClick={() => speakWord(word)}
                     >
-                        <i class="fa-solid fa-volume-high speech"></i>
+                        <i className="fa-solid fa-volume-high speech"></i>
                     </div>
                 </div>
                 <div className="answers">
